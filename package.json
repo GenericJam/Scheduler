@@ -1,0 +1,16 @@
+{
+  "name": "scheduler",
+  "version": "1.0.0",
+  "description": "Coding test",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.0"
+  }
+}
