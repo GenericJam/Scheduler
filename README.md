@@ -6,11 +6,11 @@ This is a coding test for a job.
 
 If you want to install this:
 
-`git clone https://github.com/GenericJam/Scheduler.git
+````git clone https://github.com/GenericJam/Scheduler.git
 
 cd Scheduler
 
-npm install `
+npm install ```
 
 ## Available Scripts
 
@@ -41,13 +41,13 @@ B 09-01-2018 7
 C 15-01-2018 6
 D 09-01-2018 3
 
-` Production A starts on day 2 and ends on day 6
+``` Production A starts on day 2 and ends on day 6
 
     Production B starts on day 9 and ends on day 15
 
     Production C starts on day 15 and ends on day 20
 
-    Production D starts on day 9 and ends on day 11`
+    Production D starts on day 9 and ends on day 11```
 
 In this example, it’s not possible to carry out all the productions because the periods for B and C overlap. 3 productions maximum can be carried out: A, D and C.
 Constraints
@@ -62,7 +62,14 @@ startingDay > current date
 
 Input
 
-`[ { "startingDay": "2018-01-02T00:00:00.000Z", "duration": 5 }, { "startingDay": "2018-01-09T00:00:00.000Z", "duration": 7 }, { "startingDay": "2018-01-15T00:00:00.000Z", "duration": 6 }, { "startingDay": "2018-01-09T00:00:00.000Z", "duration": 3 } ]`
+````
+
+[
+{ "startingDay": "2018-01-02T00:00:00.000Z", "duration": 5 },
+{ "startingDay": "2018-01-09T00:00:00.000Z", "duration": 7 },
+{ "startingDay": "2018-01-15T00:00:00.000Z", "duration": 6 },
+{ "startingDay": "2018-01-09T00:00:00.000Z", "duration": 3 }
+]```
 
 Output
 
@@ -70,7 +77,7 @@ Output
 
 Input
 
-`[
+````[
 {
 "startingDay": "2018-01-03T00:00:00.000Z",
 "duration": 5
@@ -92,8 +99,8 @@ Input
 "duration": 6
 }
 
-]`
+]```
 
 Output
 
-`{ "productionCycle" : 4 }`
+````
