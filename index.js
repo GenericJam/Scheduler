@@ -1,29 +1,14 @@
-const input = [
-  {
-    startingDay: "2018-01-02T00:00:00.000Z",
-    duration: 5
-  },
-  {
-    startingDay: "2018-01-09T00:00:00.000Z",
-    duration: 7
-  },
-  {
-    startingDay: "2018-01-15T00:00:00.000Z",
-    duration: 6
-  },
-  {
-    startingDay: "2018-01-09T00:00:00.000Z",
-    duration: 3
-  }
-];
+const { inputs } = require("./test/data.js");
 
-main(input);
+main(inputs[0]);
+
 // Launcher
 function main(input) {
   const longestChain = getLongestChain(input);
   const productionCycle = {
     productionCycle: longestChain.length
   };
+  // console.log(longestChain);
   console.log(productionCycle);
 }
 
@@ -33,16 +18,19 @@ function getLongestChain(input) {
   startSorted = input.sort(startSort);
 
   const noConflicts = getNoConflicts(startSorted);
-  console.log(noConflicts);
   const noConflictChains = noConflicts.map(link => {
     const chain = [link.periodIndex];
     return getChain(link, noConflicts, chain);
   });
 
-  let longestChain = [];
+  let longestChainIndexes = [];
   noConflictChains.forEach(chain => {
-    longestChain = longestChain.length > chain.length ? longestChain : chain;
+    longestChainIndexes =
+      longestChainIndexes.length > chain.length ? longestChainIndexes : chain;
   });
+
+  const longestChain = longestChainIndexes.map(index => startSorted[index]);
+
   return longestChain;
 }
 
@@ -143,8 +131,8 @@ function checkConflict(period1, period2) {
   // This conflicts
   if (startDate2.getTime() < endingDate1.getTime()) {
     if (
-      endingDate2.getTime() > endingDate1.getTime() ||
-      startDate2.getTime() > startDate1.getTime()
+      endingDate2.getTime() >= endingDate1.getTime() ||
+      startDate2.getTime() >= startDate1.getTime()
     ) {
       return true;
     }
@@ -152,8 +140,8 @@ function checkConflict(period1, period2) {
   // This conflicts
   if (startDate1.getTime() < endingDate2.getTime()) {
     if (
-      endingDate1.getTime() > endingDate2.getTime() ||
-      startDate1.getTime() > startDate2.getTime()
+      endingDate1.getTime() >= endingDate2.getTime() ||
+      startDate1.getTime() >= startDate2.getTime()
     ) {
       return true;
     }
