@@ -113,7 +113,7 @@ describe("startSort()", function() {
 describe("getLongestChain()", function() {
   // let currOffset = 0;
   // This number can be as high as 5000 without blowing up
-  let dataSize = 5000;
+  let dataSize = 1000;
   let wobble = 100;
   let baseDuration = 5;
 
@@ -151,7 +151,7 @@ describe("getLongestChain()", function() {
   console.log("Finding longest mixed chain");
   const longestChain = getLongestChain(mixed);
   console.log("Comparing mixed and optimal chains to ensure equality");
-  describe(`should find the longest optimal chain of non overlapping periods using generated optimal and non-optimal data`, () => {
+  describe(`should find the longest optimal chain of non overlapping periods using generated mixed optimal and non-optimal data`, () => {
     for (let i = 0; i < longestCleanChain.length; i++) {
       const clean = longestCleanChain[i];
       const mixed = longestChain[i];
